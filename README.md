@@ -61,7 +61,7 @@ Modify `local_llm_server.py` to specify the path to your pre-downloaded Hugging 
 
 ```python
 # In local_llm_server.py
-model_name = "Qwen/Qwen2-7B-Instruct" # <-- CHANGE THIS to your model
+model_name = "Qwen/Qwen2.5-7B-Instruct" # <-- CHANGE THIS to your model
 ```
 
 ### 3. Execution
