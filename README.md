@@ -90,6 +90,9 @@ You will need **two separate terminal sessions**.
 
 If you find this work useful in your research, please consider citing our paper.
 
+## Thanks
+
+We learn a lot from [MathBlackBox](https://github.com/trotsky1997/MathBlackBox). Thanks!
 
 ## License
 
