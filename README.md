@@ -1,9 +1,8 @@
-# Reflective_Security_Tree_Search
-Empowering Large Language Models with Autonomous Reasoning for Novel Code Vulnerability Detection
+# SRTS: Unlocking Zero-Shot Vulnerability Detection in Large Language Models via Self-Reflection and Tree Search
 
 > **Note:** The code will be released once the paper is accepted.
 
-This repository contains the official implementation for our paper, "[Reflective Security Tree Search]". We propose a novel framework where a Large Language Model (LLM) agent iteratively improves its reasoning capabilities for code vulnerability detection through a process of **self-reflection and guided refinement**.
+This repository contains the official implementation for our paper, "[SRTS]". We propose a novel framework where a Large Language Model (LLM) agent iteratively improves its reasoning capabilities for code vulnerability detection through a process of **Self-Reflection and Tree Search**.
 
 ## Abstract
 
