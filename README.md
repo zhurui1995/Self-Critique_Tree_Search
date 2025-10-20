@@ -2,7 +2,7 @@
 
 > **Note:** The code will be released once the paper is accepted.
 
-This repository contains the official implementation for our paper, "[SRTS]". We propose a novel framework where a Large Language Model (LLM) agent iteratively improves its reasoning capabilities for code vulnerability detection through a process of **Self-Reflection and Tree Search**.
+This repository contains the official implementation for our paper, "[SCTS]". We propose a novel framework where a Large Language Model (LLM) agent iteratively improves its reasoning capabilities for code vulnerability detection through a process of **Self-Critique Tree Search**.
 
 ## Abstract
 
