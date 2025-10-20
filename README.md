@@ -1,4 +1,4 @@
-# SRTS: Unlocking Zero-Shot Vulnerability Detection in Large Language Models via Self-Reflection and Tree Search
+# SCTS: Self-Critique Tree Search for Zero-Shot Vulnerability Detection
 
 > **Note:** The code will be released once the paper is accepted.
 
