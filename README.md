@@ -49,7 +49,7 @@ The system is decoupled into two main components that run concurrently:
 Clone the repository and install the required dependencies.
 
 ```bash
-git clone https://github.com/zhurui1995/Reflective_Security_Tree_Search.git
+git clone https://github.com/zhurui1995/Self-Critique_Tree_Search.git
 cd Reflective_Security_Tree_Search
 pip install -r requirements.txt
 ```
