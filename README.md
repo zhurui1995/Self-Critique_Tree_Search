@@ -53,7 +53,7 @@ cd Self-Critique_Tree_Search
 pip install -r requirements.txt
 ```
 
-### 2. Configure the Local LLM
+### 2. (Optional) Configure the Local LLM
 
 Modify `local_llm_server.py` to specify the path to your pre-downloaded Hugging Face model.
 
