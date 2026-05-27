@@ -1,4 +1,4 @@
-# SCTS: Self-Critique Tree Search for Zero-Shot Vulnerability Detection
+# SCTS: Self-Critique Tree Search for Out-of-Distribution Vulnerability Detection
 
 > **Note:** The code will be released once the paper is accepted.
 
@@ -6,7 +6,7 @@ This repository contains the official implementation for our paper, "[SCTS]". We
 
 ## Abstract
 
-Out-of-Distribution (OOD) vulnerability detection remains a critical challenge in code security. Supervised learning models struggle to generalize to OOD vulnerability patterns. Meanwhile, Large Language Models (LLMs) show logical inconsistencies and low recall in zero-shot reasoning. These methods are limited because they simplify the iterative exploration of vulnerability analysis into a single-step prediction. To address this problem, we propose Self-Critique Tree Search (SCTS), an algorithm that performs iterative and self-supervised optimization at inference time. Grounded in the Monte Carlo Tree Search (MCTS) framework, SCTS enables an LLM to alternate between two roles: the Reasoner and the Critique. The Reasoner generates candidate vulnerability analysis reports. The Critique then evaluates these reports to identify logical flaws. This assessment serves as an internal reward signal that guides the search process to converge on logically consistent conclusions. We evaluated SCTS on a rigorous OOD benchmark. SCTS boosts the average recall of an 8B parameter LLM to 84.70%, outperforming a 32B parameter LLM and multiple supervised learning models. Our work demonstrates a key insight. For complex reasoning tasks like vulnerability analysis, an explicit search and self-correction mechanism is an effective path to robust OOD generalization.
+Out-of-Distribution (OOD) vulnerability detection remains a critical challenge in code security. Supervised learning models struggle to generalize to OOD vulnerability patterns. Meanwhile, Large Language Models (LLMs) show logical inconsistencies and low recall in zero-shot reasoning. These methods are limited because they simplify the iterative exploration of vulnerability analysis into a single-step prediction. To address this problem, we propose SCTS (Self-Critique Tree Search) that performs iterative and self-supervised optimization at inference time. Grounded in the Monte Carlo Tree Search (MCTS) framework, SCTS enables an LLM to alternate between two roles: the Reasoner and the Critique. The Reasoner generates candidate vulnerability analysis reports. The Critique then evaluates these reports to identify logical flaws. This assessment serves as an internal reward signal that guides the search process to converge on logically consistent conclusions. We evaluated SCTS on a rigorous OOD benchmark. SCTS boosts the average recall of an 8B parameter LLM to 84.70%, outperforming a 32B parameter LLM and multiple supervised learning models. Our work demonstrates a key insight. For complex reasoning tasks like vulnerability analysis, an explicit search and self-refine mechanism is an effective path to robust OOD generalization. Our code and data are publicly available.
 ## Methodology
 
 The core of our framework is an iterative loop that cultivates a search tree where each node represents a unique vulnerability analysis report. The agent intelligently navigates and expands this tree to find the optimal analysis.
@@ -32,7 +32,7 @@ This iterative process guides the agent to progressively discard simplistic or f
 
 The system is decoupled into two main components that run concurrently:
 
-1.  **Local LLM Service (`local_llm_server.py`)**: A lightweight Flask server that loads a local LLM (e.g., from Hugging Face) and exposes an OpenAI-compatible API endpoint (`/v1/chat/completions`). This acts as a model abstraction layer.
+1.  **(Optional) Local LLM Service (`local_llm_server.py`)**: A lightweight Flask server that loads a local LLM (e.g., from Hugging Face) and exposes an OpenAI-compatible API endpoint (`/v1/chat/completions`). This acts as a model abstraction layer.
 2.  **Main Algorithm (`main.py`)**: The primary script that implements the MCTS-driven reasoning loop. It acts as a client, sending all generation requests to the local LLM service. This design ensures that the core algorithm remains independent of the specific LLM being used.
 
 ## Setup & Usage
@@ -66,7 +66,7 @@ model_name = "Qwen/Qwen2.5-7B-Instruct" # <-- CHANGE THIS to your model
 
 You will need **two separate terminal sessions**.
 
--   **Terminal 1: Start the LLM Service**
+-   **(Optional) Terminal 1: Start the LLM Service**
     ```bash
     python local_llm_server.py
     ```
@@ -78,11 +78,6 @@ You will need **two separate terminal sessions**.
     ```
     The algorithm will now connect to your local service and begin the self-evolving analysis process on the sample functions.
 
-## Future Work
-
--   Enhancing the reward model with more sophisticated proxy metrics for analysis quality.
--   Extending the framework to support additional programming languages (e.g., Java, JavaScript).
--   Scaling the analysis from function-level to repository-level, incorporating inter-procedural analysis.
 
 ## Citation
 
